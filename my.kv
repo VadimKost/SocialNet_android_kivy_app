@@ -1,0 +1,26 @@
+<Manager>:
+    Login:
+    Test:
+
+<Login>:
+    name:'1'
+    req_name:r_name.text
+    req_password:r_password.text
+    BoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            text:'lol'
+        MDTextField:
+            id:r_name
+            hint_text: "No helper text"
+        MDTextField:
+            id:r_password
+            hint_text: "No helper text"
+        MDRoundFlatButton:
+            text:'lol'
+            on_release:root.log();
+<Test>:
+    name:'2'
+    BoxLayout:
+        MDLabel:
+            text:'2'
