@@ -1,6 +1,6 @@
 <Manager>:
     Login:
-    Test:
+    Account:
 
 <Login>:
     name:'1'
@@ -8,19 +8,38 @@
     req_password:r_password.text
     BoxLayout:
         orientation:'vertical'
+        padding:10
         MDLabel:
-            text:'lol'
+            size_hint_y:0.1
+            font_style:'H6'
+            halign:'center'
+            text:'Authorization'
         MDTextField:
             id:r_name
-            hint_text: "No helper text"
+            hint_text: "Your login"
         MDTextField:
             id:r_password
-            hint_text: "No helper text"
-        MDRoundFlatButton:
-            text:'lol'
+            hint_text: "Your password"
+        Image:
+            source:'assets/logo.png'
+            size: self.texture_size
+        MDRaisedButton:
+            size_hint:[1,0.1]
+            text:'Enter'
             on_release:root.log();
-<Test>:
+        BoxLayout:
+            size_hint:[1,0.1]
+            spacing:10
+            orientation:'horizontal'
+            MDRaisedButton:
+                size_hint:[0.5,None]
+                text:'Registration'
+            MDRaisedButton:
+                size_hint:[0.5,None]
+                text:'Forgot password?'
+
+<Account>:
     name:'2'
     BoxLayout:
-        MDLabel:
-            text:'2'
+        AsyncImage:
+            source:'assets/logo.png'

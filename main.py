@@ -1,3 +1,4 @@
+# encoding=utf8
 from kivy.storage.jsonstore import JsonStore
 import base64
 
@@ -18,9 +19,7 @@ store = JsonStore('hello.json')
 #                     print(i)
 #             except:
 #                 continue
-#     return resp[0]
-
-
+#     return resp[0] .encode('cp1251').decode('utf-8')
 
 
 
@@ -49,7 +48,7 @@ class Login(Screen):
         print(data.req_headers)
 
 
-class Test(Screen):
+class Account(Screen):
     pass
 
 
