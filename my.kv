@@ -1,7 +1,6 @@
 <Manager>:
     Login:
     Account:
-
 <Login>:
     name:'1'
     req_name:r_name.text
@@ -40,6 +39,62 @@
 
 <Account>:
     name:'2'
-    BoxLayout:
-        AsyncImage:
-            source:'assets/logo.png'
+    image:image
+    username:username
+    address:address
+    phone:phone
+    ScrollView:
+        GridLayout:
+            size_hint_y:None
+            height:100
+            cols:1
+            spacing:10
+            GridLayout:
+                size_hint_y:None
+                cols:2
+                GridLayout:
+                    cols:1
+                    AsyncImage:
+                        id:image
+                        size_hint_y:None
+                        height:100
+                GridLayout:
+                    size_hint_y:None
+                    cols:2
+                    MDLabel:
+                        font_style:'Subtitle2'
+                        size_hint_y:None
+                        height:33
+                        text:'Username'
+                    MDLabel:
+                        id:username
+                        font_style:'Caption'
+                        size_hint_y:None
+                        height:33
+                    MDLabel:
+                        font_style:'Subtitle2'
+                        size_hint_y:None
+                        height:33
+                        text:'Address'
+                    MDLabel:
+                        id:address
+                        font_style:'Caption'
+                        size_hint_y:None
+                        height:33
+                    MDLabel:
+                        font_style:'Subtitle2'
+                        size_hint_y:None
+                        height:33
+                        text:'Phone'
+                    MDLabel:
+                        id:phone
+                        font_style:'Caption'
+                        size_hint_y:None
+                        height:33
+
+            MDLabel:
+                size_hint_y:None
+                font_style:'H6'
+                height:10
+                halign:'center'
+                text:'About me'

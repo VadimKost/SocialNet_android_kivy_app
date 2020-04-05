@@ -1,59 +1,55 @@
 # encoding=utf8
-from kivy.storage.jsonstore import JsonStore
-import base64
 
+import base64
 from kivy.network.urlrequest import UrlRequest
-from kivy.properties import StringProperty
+from kivy.properties import StringProperty,ObjectProperty
 from kivy.storage.jsonstore import JsonStore
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.app import MDApp
+from mything import URL_ROOT,head_auth
 
 store = JsonStore('hello.json')
 
-# def get_user(req, resp):
-#     for i in resp:
-#         for y in i['members']:
-#             try:
-#                 z=y.split('/')
-#                 if z[5]=='5':
-#                     print(i)
-#             except:
-#                 continue
-#     return resp[0] .encode('cp1251').decode('utf-8')
+
 
 
 
 
 
 class Login(Screen):
+    req_name = StringProperty()
+    req_password=StringProperty()
     def sucsses(self,req, resp):
-        name = req.req_headers['name']
-        password = req.req_headers['password']
+        name = self.req_name
+        password = self.req_password
         store.put('user', name=name, password=password)
         self.manager.current='2'
     def on_kv_post(self, base_widget):
         if store.exists('user'):
             self.manager.current='2'
-    req_name = StringProperty()
-    req_password=StringProperty()
     def log(self):
-        auth = self.req_name + ":" + self.req_password
-        auth = base64.b64encode(auth.encode())
-        auth = str(auth, 'utf-8')
-        head = {"Authorization": 'Basic ' + auth}
-        head['name']=self.req_name
-        head['password']=self.req_password
-        data = UrlRequest('http://www.vako.ga/api/user/', self.sucsses, req_headers=head)
-
-        print(data.req_headers)
+        data = UrlRequest(URL_ROOT+'/api/user/', self.sucsses, req_headers=head_auth(self.req_name,self.req_password))
 
 
 class Account(Screen):
-    pass
+    image=ObjectProperty()
+    username=ObjectProperty()
+    address=ObjectProperty
+    phone=ObjectProperty()
+    def success(self,req,resp):
+        self.data=resp
+        self.img_pass=URL_ROOT+resp['img']
+        self.image.source=self.img_pass
+        self.username.text=self.data['username']
+        self.address.text = self.data['adress']
+        self.phone.text = self.data['phone']
 
-
+    def on_pre_enter(self, *args):
+        user=store.get('user')
+        req = UrlRequest(URL_ROOT+'/api/currentuser/', self.success, req_headers=head_auth(user['name'],user['password']))
 class Manager(ScreenManager):
     pass
+
 
 
 class MyApp(MDApp):
