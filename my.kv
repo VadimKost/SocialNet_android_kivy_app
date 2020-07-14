@@ -1,3 +1,10 @@
+
+<Content>
+    adaptive_height: True
+
+    TwoLineIconListItem:
+        text: "(050)-123-45-67"
+        secondary_text: "Mobile"
 <Manager>:
     Login:
     Account:
@@ -20,7 +27,7 @@
             id:r_password
             hint_text: "Your password"
         Image:
-            source:'assets/logo.png'
+            source:'assets/1.png'
             size: self.texture_size
         MDRaisedButton:
             size_hint:[1,0.1]
@@ -39,6 +46,7 @@
 
 <Account>:
     name:'2'
+    about_me:about_me
     image:image
     username:username
     address:address
@@ -75,7 +83,7 @@
                         font_style:'Subtitle2'
                         size_hint_y:None
                         height:33
-                        text:'Address'
+                        text:'City'
                     MDLabel:
                         id:address
                         font_style:'Caption'
@@ -98,3 +106,10 @@
                 height:10
                 halign:'center'
                 text:'About me'
+            MDLabel:
+                id:about_me
+                size_hint_y:None
+                font_style:'Body2'
+                height:50
+                text:"as"
+
