@@ -10,6 +10,7 @@ from mything import URL_ROOT, head_auth
 
 store = JsonStore('hello.json')
 
+
 class Login(Screen):
     req_name = StringProperty()
     req_password=StringProperty()
@@ -23,10 +24,6 @@ class Login(Screen):
             self.manager.current='2'
     def log(self):
         data = UrlRequest(URL_ROOT+'/api/user/', self.sucsses, req_headers=head_auth(self.req_name,self.req_password))
-
-
-class Content():
-    pass
 
 
 class Account(Screen):

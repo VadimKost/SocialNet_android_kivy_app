@@ -1,13 +1,10 @@
-
-<Content>
-    adaptive_height: True
-
-    TwoLineIconListItem:
-        text: "(050)-123-45-67"
-        secondary_text: "Mobile"
+<MyMDLabel@MDLabel>:
+    theme_text_color: "Custom"
+    text_color: 1, 1, 1, 1
 <Manager>:
     Login:
     Account:
+
 <Login>:
     name:'1'
     req_name:r_name.text
@@ -27,7 +24,7 @@
             id:r_password
             hint_text: "Your password"
         Image:
-            source:'assets/1.png'
+            source:'assets/new_logo.png'
             size: self.texture_size
         MDRaisedButton:
             size_hint:[1,0.1]
@@ -51,65 +48,80 @@
     username:username
     address:address
     phone:phone
-    ScrollView:
-        GridLayout:
-            size_hint_y:None
-            height:100
-            cols:1
-            spacing:10
-            GridLayout:
-                size_hint_y:None
-                cols:2
+    MDBackdrop:
+        title:'AboutMe'
+        header_text:"Swipe to look"
+        close_icon:'arrow-collapse-up'
+        MDBackdropFrontLayer:
+            ScrollView:
                 GridLayout:
                     cols:1
-                    AsyncImage:
-                        id:image
-                        size_hint_y:None
-                        height:100
+                    size_hint_y:None
+                    height:20
+                    spacing:10
+                    MDLabel:
+                        text:'My posts'
+        MDBackdropBackLayer:
+            ScrollView:
                 GridLayout:
                     size_hint_y:None
-                    cols:2
-                    MDLabel:
-                        font_style:'Subtitle2'
+                    height:100
+                    cols:1
+                    spacing:10
+                    GridLayout:
                         size_hint_y:None
-                        height:33
-                        text:'Username'
-                    MDLabel:
-                        id:username
-                        font_style:'Caption'
-                        size_hint_y:None
-                        height:33
-                    MDLabel:
-                        font_style:'Subtitle2'
-                        size_hint_y:None
-                        height:33
-                        text:'City'
-                    MDLabel:
-                        id:address
-                        font_style:'Caption'
-                        size_hint_y:None
-                        height:33
-                    MDLabel:
-                        font_style:'Subtitle2'
-                        size_hint_y:None
-                        height:33
-                        text:'Phone'
-                    MDLabel:
-                        id:phone
-                        font_style:'Caption'
-                        size_hint_y:None
-                        height:33
+                        cols:2
+                        GridLayout:
+                            cols:1
+                            AsyncImage:
+                                id:image
+                                size_hint_y:None
+                                height:100
+                        GridLayout:
+                            size_hint_y:None
+                            cols:2
+                            MyMDLabel:
+                                font_style:'Subtitle2'
+                                size_hint_y:None
+                                height:33
+                                text:'Username'
+                            MyMDLabel:
+                                id:username
+                                font_style:'Caption'
+                                size_hint_y:None
+                                height:33
+                            MyMDLabel:
+                                font_style:'Subtitle2'
+                                size_hint_y:None
+                                height:33
+                                text:'City'
+                            MyMDLabel:
+                                id:address
+                                font_style:'Caption'
+                                size_hint_y:None
+                                height:33
+                            MyMDLabel:
+                                font_style:'Subtitle2'
+                                size_hint_y:None
+                                height:33
+                                text:'Phone'
+                            MyMDLabel:
+                                id:phone
+                                font_style:'Caption'
+                                size_hint_y:None
+                                height:33
 
-            MDLabel:
-                size_hint_y:None
-                font_style:'H6'
-                height:10
-                halign:'center'
-                text:'About me'
-            MDLabel:
-                id:about_me
-                size_hint_y:None
-                font_style:'Body2'
-                height:50
-                text:"as"
+                    MyMDLabel:
+
+                        size_hint_y:None
+                        font_style:'H6'
+                        height:10
+                        halign:'center'
+                        text:'About me'
+                    MyMDLabel:
+                        id:about_me
+                        size_hint_y:None
+                        font_style:'Body2'
+                        height:50
+                        text:"as"
 
