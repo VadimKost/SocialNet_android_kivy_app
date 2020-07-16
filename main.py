@@ -1,5 +1,5 @@
 # encoding=utf8
-
+from kivy.core.window import Window
 from kivy.network.urlrequest import UrlRequest
 from kivy.properties import StringProperty, ObjectProperty
 from kivy.storage.jsonstore import JsonStore
