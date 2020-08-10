@@ -35,11 +35,11 @@ class Account(Screen):
     def success(self,req,resp):
         print(resp)
         self.data=resp
-        self.image.source=URL_ROOT+resp['img']
-        self.username.text=self.data['user']['username']
-        self.address.text = self.data['adress']
-        self.phone.text = self.data['phone']
-        self.about_me.text=self.data['AboutMe']
+        self.image.source=self.data['img']['photo']
+        self.username.text=self.data['username']
+        self.address.text = self.data['user_i']['adress']
+        self.phone.text = self.data['user_i']['phone']
+        self.about_me.text=self.data['user_i']['AboutMe']
 
     def on_pre_enter(self, *args):
         user=store.get('user')
